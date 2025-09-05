@@ -1,9 +1,7 @@
- function Footer() {
+ export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#222', color: 'white', textAlign: 'center', padding: '10px', marginTop: '20px' }}>
-      <p>© 2023 City Lovers</p>
+    <footer style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '10px', marginTop: '20px' }}>
+      <p>© 2025 My Travel Site</p>
     </footer>
   );
 }
-
-export default Footer;
