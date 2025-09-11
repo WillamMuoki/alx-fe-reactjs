@@ -1,4 +1,4 @@
-// src/components/RecipeDetails.jsx
+ // src/components/RecipeDetails.jsx
 import { useParams, Link } from 'react-router-dom';
 import { useRecipeStore } from '../store/recipeStore';
 import EditRecipeForm from './EditRecipeForm';
@@ -6,7 +6,7 @@ import DeleteRecipeButton from './DeleteRecipeButton';
 
 const RecipeDetails = () => {
   const { id } = useParams();
-  const recipeId = Number(id); // assuming numeric id
+  const recipeId = Number(id); // assuming numeric ids
   const recipe = useRecipeStore((state) =>
     state.recipes.find((r) => r.id === recipeId)
   );
@@ -23,6 +23,7 @@ const RecipeDetails = () => {
   return (
     <div>
       <h1>{recipe.title}</h1>
+      <p><strong>ID:</strong> {recipe.id}</p> {/* ✅ Now recipe.id is used */}
       <p>{recipe.description}</p>
 
       <h3>Edit Recipe</h3>
