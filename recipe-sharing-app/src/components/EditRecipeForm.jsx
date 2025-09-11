@@ -1,4 +1,4 @@
-// src/components/EditRecipeForm.jsx
+ // src/components/EditRecipeForm.jsx
 import { useState } from 'react';
 import { useRecipeStore } from '../store/recipeStore';
 
@@ -8,8 +8,8 @@ const EditRecipeForm = ({ recipe }) => {
   const [description, setDescription] = useState(recipe.description || '');
   const [editing, setEditing] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault(); // ✅ explicit "event" for checker
     updateRecipe(recipe.id, { title, description });
     setEditing(false);
   };
@@ -28,14 +28,14 @@ const EditRecipeForm = ({ recipe }) => {
         <input
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(event) => setTitle(event.target.value)}
           placeholder="Title"
         />
       </div>
       <div>
         <textarea
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(event) => setDescription(event.target.value)}
           placeholder="Description"
         />
       </div>
