@@ -1,17 +1,21 @@
-import { useState } from 'react';
+ import { useState } from 'react';
 import { useRecipeStore } from '../store/recipeStore';
+import { useNavigate } from 'react-router-dom';
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !description) return;
-    addRecipe({ id: Date.now(), title, description });
+    const newRecipe = { id: Date.now(), title, description };
+    addRecipe(newRecipe);
     setTitle('');
     setDescription('');
+    navigate(`/recipes/${newRecipe.id}`);
   };
 
   return (
