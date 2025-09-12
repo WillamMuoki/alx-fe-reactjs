@@ -7,14 +7,14 @@ export const useRecipeStore = create((set) => ({
   favorites: [],
   addFavorite: (recipeId) =>
     set((state) => ({
-      favorites: [...new Set([...state.favorites, recipeId])], // prevent duplicates
+      favorites: [...new Set([...state.favorites, recipeId])],
     })),
   removeFavorite: (recipeId) =>
     set((state) => ({
       favorites: state.favorites.filter((id) => id !== recipeId),
     })),
 
-  // Recommendations (mock implementation)
+  // Recommendations
   recommendations: [],
   generateRecommendations: () =>
     set((state) => {
